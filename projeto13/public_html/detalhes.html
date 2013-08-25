@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>        
+        <title>Home - Loja virtual</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Language" content="pt-br" lang="pt-br">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/loja.css" type="text/css">
+        <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+        
+    </head>
+    <body>
+		<div class="container">
+			<div id="header"><!-- inicio header -->
+                <div class="topHeader">
+                    <div class="maincenter">				
+                            <div id="logo">
+                                <a href="index.html"><img src="img/logo.png" alt="Monitor" ></a>
+                            </div>
+                            <div class="header_fone">Compre pelo Telefone (11) 9999-9999</div>
+                            <div class="search" >
+                                <input type="text" class="inputtext" value="O que você procura?" >
+                                <input type="button" class="btn_ui" value="Pesquisar" >
+                            </div>
+                            <div class="carrinho">
+                                <input type="hidden" value="0" id="total">
+                                <div class="checkcarrinho">							
+                                        <img src="img/icone_carrinho.png" alt="Monitor" >
+                                        Meu Carrinho <span class="intens_carrinho">0</span>							
+                                </div>	
+                                <div class="form_carrinho">
+                                        <a href="login.html">faça seu login ou cadastre-se</a>
+                                </div>
+                            </div>					
+                    </div>				
+                </div>
+                <div class="menuWrap">
+                        <ul class="headerMenu">	
+                            <li><a href="#content"><b> Ultrabooks</b></a></li>
+                            <li><a href="#content"><b> Notebooks</b></a></li>
+                            <li><a href="#content"><b> Netbooks</b></a></li>
+                            <li><a href="#content"><b> Tablets</b></a></li>
+                            <li><a href="#content"><b> Games</b></a></li>
+                        </ul>				
+                </div>
+            </div> <!-- header -->
+				
+			
+										
+			<div class="container_elements mg_canto">
+				<div class="banner_img_destaque">
+					<img class="banner_img_produto" src="img/monitor.jpg" alt="Monitor" >
+				</div>	
+				<div class="main_descricao_produto">
+					<h2 class="banner_title_produto">Monitor AOC 20.0</h2>
+						<div class="banner_desc_produto">
+							<input type="button" class="btn_ui" value="Descrição Completa" onclick="location.href='#descricao_detalhe';" ><br>
+							<input type="button" class="btn_ui" value="Adicionar ao Carrinho"><br>
+							<input type="button" class="btn_ui" value="Adicionar e Finalizar a compra"><br>
+						</div>
+						<div class="banner_preco">
+							<span class="strike">de: R$ 1000.00</span>
+								<hr>
+							<span class="preco_real">por: R$899.00</span>
+						</div>
+				</div>
+				<div class="main_banner_galeria"> 
+					<ul >
+						<li><img class="banner_img_produto" src="img/monitor.jpg" alt="Monitor" ></li>
+						<li><img class="banner_img_produto" src="img/monitor.jpg" alt="Monitor" ></li>
+						<li><img class="banner_img_produto" src="img/monitor.jpg" alt="Monitor" ></li>
+					</ul>
+				</div>
+			</div>
+											
+			<div class="title_destaque">Separamos mais alguns produtos que você pode gostar</div>	
+	
+			<div id="content">
+				<ul class="vitrineProdutos">
+					<li>
+						<div class="content_produto">
+							<img class="vitrine_produto_img" src="img/monitor.jpg" alt="Monitor" >
+							<div>Monitor AOC 20.0</div>
+							<div>
+								<span class="strike">de: R$ 1000.00</span>
+										<hr>
+									<span class="preco_real">por: R$899.00</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="content_produto">
+							<img class="vitrine_produto_img" src="img/monitor.jpg" alt="Monitor" >
+							<div>Monitor AOC 20.0</div>
+							<div>
+								<span class="strike">de: R$ 1000.00</span>
+										<hr>
+									<span class="preco_real">por: R$899.00</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="content_produto">
+							<img class="vitrine_produto_img" src="img/monitor.jpg" alt="Monitor" >
+							<div >Monitor AOC 20.0</div>
+							<div >
+								<span class="strike">de: R$ 1000.00</span>
+										<hr>
+									<span class="preco_real">por: R$899.00</span>
+							</div>
+						</div>
+					</li>										
+				</ul>            
+			</div>      		
+			
+			<div class="title_destaque">Descrição Completa</div>
+			<h2 class="banner_title_produto mg_canto">Monitor AOC 20.0</h2>
+			<div class="banner_desc_produto mg_canto" id="descricao_detalhe">O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum. </div>
+			
+			
+            <div id="footer"><!-- inicio footer -->
+                <div class="maincenter">Todos os direitos reservados</div>		
+
+                <div class="shopping-cart drop-here ui-droppable" id="shopping-cart">		
+                    <div class="inside">	
+                        <h3 class="adj_cart">Meu Carrinho</h3>		
+                        <div class="basket-icons">					
+                            <img src="img/shopping_cart_full.png" alt="shopping cart" width="120" height="80" >			
+                        </div>
+
+                            <div id="carrinho-container">
+                                <ul id="carrinho-produtos">
+                                    <li class="adicione">Arraste os produtos para esta área</li>
+                                </ul>
+                            </div>
+
+                            <div id="cartTotal" style="display: block;">
+                                <p>
+                                    Total: R$<span class="total-amount"> 0</span><br >
+                                    Itens<span class="intens_carrinho" style="background: none"> 0 </span><br >
+                                    <a href="#" id="finish">Finalizar</a>
+                                    <a href="#" id="limpar">Cancelar</a>
+                                </p>
+                            </div>			
+                    </div>				
+                </div>	
+
+                <div id="dialog" title="Finalizar compra">
+                  <p>Obrigado por comprar conosco</p>
+                  <p>Quantidade de itens:<span class="intens_carrinho" style="background: none"> 0 </span></p>
+                  <p>Total da compra: R$<span class="total-amount"> 0</span></p>			 
+                </div>
+                
+            </div><!-- fim footer -->     
+			
+        </div>
+        
+        <script type="text/javascript" src="js/jquery.min.js" ></script>
+        <script type="text/javascript" src="js/jquerycicle.js" ></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js" ></script>
+        <script type="text/javascript" src="js/jquery.elevateZoom.js" ></script>
+        <script type="text/javascript" src="js/geral.js" ></script>
+    </body>
+</html>
