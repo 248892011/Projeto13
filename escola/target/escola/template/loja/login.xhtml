@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+
+	<body> 
+		<ui:composition>
+			<div class="title_destaque mg_top">Identificação</div>	
+				
+			<div class="identificacao_left mg_canto">
+				<div class="title_destaque"><span>Novo</span> Cadastro</div>
+				<div class="mg_top">Se você ainda não é cadastrado, escolha uma das opções abaixo:</div>	
+				<input type="button" class="btn_ui mg_top" id="cad_btn_fisica" value="Para Pessoas físicas" />
+				<input type="button" class="btn_ui mg_top" id="cad_btn_juridica" value="Para Pessoas jurídicas" />
+				
+				<div class="container_cadastro_fj">
+					<!-- cadastro de pessoas fisicas-->					
+					 <h:form styleClass="mg_top" id="cad_pessoa">
+				      
+				      <h:inputHidden value="#{usuarioBean.usuario.idUsuario}"/>
+				      <h:inputHidden value="#{usuarioBean.sexo}" />
+						
+						<table >
+							<tr>
+							  <td><h:outputLabel id="lblNome" for="txtNome" value="Nome"/></td>
+						      <td>
+							      <h:inputText id="txtNome" label="lblNome" value="#{usuarioBean.usuario.nomeUsuario}" maxlength="255" required="true" requiredMessage="Informe o Nome"  validatorMessage="O Nome ultrapassou 255 caracteres" styleClass="mg_canto">
+							      <f:validateLength maximum="255"/>
+						      	  </h:inputText>
+						      </td>
+							</tr>
+							
+							<tr>
+								 <td><h:outputLabel id="lblCPF" for="txtCPF" value="CPF"/></td>
+							     <td>
+								     <h:inputText id="txtCPF" label="lblCPF" value="#{usuarioBean.usuario.cpfUsuario}" maxlength="100" required="true" requiredMessage="Informe o CPF" validatorMessage="O CPF ultrapassou 20 caracteres"  styleClass="mg_canto" >
+								     <f:validateLength maximum="20"/>
+								     </h:inputText>
+								</td>
+							</tr>
+							<tr>
+						   	  <td><h:outputLabel id="lblSexo" for="lblSexo" value="Sexo:"/></td>
+						      <td>
+							      <h:selectOneRadio value="#{usuarioBean.sexo}" required="true" requiredMessage="Selecione o Sexo" >
+							   	  <f:selectItems value="#{usuarioBean.constantes.sexos}" var="s" itemLabel="#{s.descricao}" itemValue="#{s.tipo}" />
+							   	  </h:selectOneRadio>
+							  </td>	  
+							</tr>
+							<tr>                               
+								  <td><h:outputLabel id="lblCEP" for="txtCEP" value="CEP"/></td>
+								  <td>    
+								      <h:inputText id="txtCEP" label="lblCEP" value="#{usuarioBean.usuario.cepUsuario}" required="true" requiredMessage="Informe o CEP" styleClass="mg_canto">			      
+								      <f:validateLength maximum="20"/>
+								      </h:inputText>
+								  </td>   
+							</tr>
+						</table>
+								
+						<div class="title_destaque mg_top">Dados de acesso no site</div>
+						
+						<table > 	
+							<tr>
+								<td><h:outputLabel id="lblEmail" for="cf_mail" value="E-mail"/></td>
+							    <td>
+								    <h:inputText id="cf_mail" lable="lblEmail" value="#{usuarioBean.usuario.emailUsuario}" maxlength="255" required="true" requiredMessage="Informe o E-mail" validatorMessage="O E-mail ultrapassou 255 caracteres"  styleClass="mg_canto">
+								    <f:validateLength maximum="255"/>
+								    </h:inputText>
+								</td>
+							</tr>
+							<tr><!-- 
+                                <td><label for="cf_r_email"><em >Repita o e-mail</em></label></td>
+								<td><input class="mg_canto" type="text" name="r_email" id="cf_r_email" /></td>
+								 -->
+							</tr>
+							<tr>
+                                <td><h:outputLabel id="lblSenha" for="txtSenha" value="Senha:"/></td>
+							    <td>  
+							      <h:inputSecret id="txtSenha" lable="lblSenha" value="#{usuarioBean.usuario.senhaUsuario}" maxlength="32" required="true" requiredMessage="Informe a senha" validatorMessage="A senha ultrapassou 32 caracteres"  styleClass="mg_canto">
+							      <f:validateLength maximum="32"/>
+							      </h:inputSecret>
+							    </td>
+							</tr>
+							<tr><!--  
+                                <td><label for="cf_r_senha"><em >Repita a Senha</em></label></td>
+								<td><input class="mg_canto" type="text" name="r_senha" id="cf_r_senha"/></td>
+								-->
+							</tr>					
+							<tr>
+                                <td colspan="2"><h:commandButton id="btnSalvar"  value="Cadastrar" styleClass="btn_ui mg_top" action="#{usuarioBean.gravarUsuario}"/></td>
+							</tr>						
+						</table>													
+					</h:form>	
+					<h:messages/>
+					
+					
+					
+					<!-- cadastro de pessoas juridicas-->
+					<h:form class="mg_top" id="cad_juridica" method="post" action="">
+					
+					<h:inputHidden value="#{usuarioBean.usuario.idUsuario}"/>
+					
+						<table >
+							<tr>
+								  <td><h:outputLabel id="lblRzao" for="txtRzao" value="Razão Social"/></td>
+								  <td>
+								      <h:inputText id="txtRzao" label="lblRzao" value="#{usuarioBean.usuario.razaoSocialUsuario}" required="true" requiredMessage="Informe a razão social"  maxlength="255" validatorMessage="A razão social ultrapassou 255 caracteres" styleClass="mg_canto">
+								      <f:validateLength maximum="255"/>
+								      </h:inputText>
+								  </td>    
+							</tr>
+							<tr>
+                                 <td><h:outputLabel id="lblNfantasia" for="txtNfantasia" value="Nome Fantasia"/></td>
+     							  <td>									
+								      <h:inputText id="txtNfantasia" label="lblNfantasia" value="#{usuarioBean.usuario.nomeFantasiaUsuario}" required="true" requiredMessage="Informe o nome Fantasia" maxlength="255"  validatorMessage="O nome fantasia ultrapassou 255 caracteres"  styleClass="mg_canto" >
+								      <f:validateLength maximum="255"/>
+								      </h:inputText>
+								  </td>    
+							</tr>
+							<tr>
+								  <td><h:outputLabel id="lblCNPJ" for="lblCNPJ" value="CNPJ:"/></td>
+							      <td>
+								      <h:inputText id="txtCNPJ" label="lblCNPJ" value="#{usuarioBean.usuario.cnpjUsuario}" maxlength="45" required="true" requiredMessage="Informe o CNPJ" validatorMessage="O nome fantasia ultrapassou 45 caracteres"  styleClass="mg_canto" >
+								      <f:validateLength maximum="45"/>
+								      </h:inputText>
+								   </td>   
+							</tr>							
+							<tr>
+								  <td><h:outputLabel id="lblCEP_J" for="lblCEP_J" value="CEP:"/></td>
+								  <td>    
+								      <h:inputText id="txtCEP_J" label="lblCEP_J" value="#{usuarioBean.usuario.cepUsuario}" maxlength="45" required="true" requiredMessage="Informe o CEP"  validatorMessage="O CEP ultrapassou 45 caracteres"  styleClass="mg_canto" >
+								      <f:validateLength maximum="45"/>
+								      </h:inputText>
+								  </td> 								
+							</tr>
+						</table>
+								
+						<div class="title_destaque mg_top">Dados de acesso no site</div>
+						
+						<table > 	
+							<tr>
+								  <td><h:outputLabel id="lblEmail_J" for="txtEmail_J" value="E-mail"/></td>
+							      <td>
+								      <h:inputText id="txtEmail_J" lable="lblEmail_J" value="#{usuarioBean.usuario.emailUsuario}" required="true" requiredMessage="Informe o E-mail" maxlength="255" validatorMessage="O e-mail ultrapassou 255 caracteres"  styleClass="mg_canto">
+								      <f:validateLength maximum="255"/>
+								      </h:inputText>
+								  </td>    
+							</tr>
+							<tr><!-- 
+                                <td><label for="cj_r_email"><em >Repita o e-mail</em></label></td>
+								<td><input class="mg_canto" type="text" id="cj_r_email"/></td>
+								 -->
+							</tr>
+							<tr>
+								  <td><h:outputLabel id="lblSenha_J" for="lblSenha_J" value="Senha:"/></td>
+							      <td>
+								      <h:inputSecret id="txtSenha_J" lable="lblSenha_J" value="#{usuarioBean.usuario.senhaUsuario}" required="true" requiredMessage="Informe a senha" maxlength="32" validatorMessage="A senha ultrapassou 32 caracteres"  styleClass="mg_canto">
+								      <f:validateLength maximum="32"/>
+								      </h:inputSecret>
+								  </td>    
+							</tr>
+							<tr><!-- 
+                                <td><label for="cj_r_senha"><em >Repita a Senha</em></label></td>
+								<td><input class="mg_canto" type="text" name="r_senha" id="cj_r_senha"/></td>
+								 -->
+							</tr>					
+							<tr>                                
+                                <td colspan="2"><h:commandButton id="btnSalvar_j"  value="Cadastrar" styleClass="btn_ui mg_top" action="#{usuarioBean.gravarUsuario}"/></td>
+                             </tr>						
+						</table>
+					</h:form>						
+				</div>		
+			</div>
+			
+			<div class="identificacao_right mg_right">
+				<div class="title_destaque"><span>Já sou</span> cadastrado</div>
+				<div class="mg_canto mg_top">Se você já é cadastrado, digite seus dados:</div>	
+				
+				<div class="mg_canto mg_top">					
+					<h:form class="area_login_inputs"  method="post" action="">
+                          <table >
+                              <tr class="mg_top">
+                                  <td><h:outputLabel id="lblLog_email" for="log_email" value="E-mail"/></td>
+                                  <td>
+                                  <h:inputText id="log_email" label="lblLog_email" value="#{usuarioBean.usuario.emailUsuario}" maxlength="255" required="true" requiredMessage="Informe o E-mail"  validatorMessage="O E-mail ultrapassou 255 caracteres"  styleClass="mg_canto" >
+								      <f:validateLength maximum="45"/>
+								   </h:inputText>                                                                  
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td><h:outputLabel id="lblLog_senha" for="log_senha" value="Senha"/></td>
+                                  <td>
+                                  <h:inputSecret id="log_senha" label="lblLog_senha" value="#{usuarioBean.usuario.senhaUsuario}" maxlength="45" required="true" requiredMessage="Informe a senha"  validatorMessage="A senha ultrapassou 45 caracteres"  styleClass="mg_canto" >
+								      <f:validateLength maximum="45"/>
+								   </h:inputSecret>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td colspan="2">
+                                  <h:commandButton  value="Entrar" styleClass="btn_ui mg_top" action="#{usuarioBean.doEfetuarLogin}"/>                                  
+                                  </td>
+                              </tr>                                                                                                                                           
+                          </table>
+					</h:form>						
+				</div>						
+			</div>
+		
+		</ui:composition>
+	
+	</body> 
+</html>
