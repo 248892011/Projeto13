@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:c="http://java.sun.com/jstl/core"
+	  xmlns:tr="http://myfaces.apache.org/trinidad"
+	  lang="pt-br">
+    <body>
+        
+<ui:composition template="template.xhtml">        
+<ui:define name="titulo">
+   	Área Administrativa
+</ui:define>
+
+	<ui:define name="conteudo">
+	<div id="formulario">
+	<h:messages />
+
+	<h:dataTable border="1" id="produtos" 
+		var="item" value="#{produtoController.todos}" 
+		style="width: 396px">
+	
+		<h:column id="column1">
+			<h:outputText value="#{item.id}"/>
+			<f:facet name="header">
+				<h:outputText value="ID"/>
+			</f:facet>
+		</h:column>
+	
+		<h:column id="column2">
+			<h:outputText value="#{item.prodNome}"/>
+			<f:facet name="header">
+				<h:outputText value="Produto"/>
+			</f:facet>
+		</h:column>
+	
+		<h:column>
+			<h:outputText value="#{item.preco}">
+				<f:convertNumber type="currency" />
+			</h:outputText>
+			<f:facet name="header">
+				<h:outputText value="Preço"/>
+			</f:facet>
+		</h:column>
+		<h:column>
+			<h:commandLink value="Atualizar" action="#{produtoController.editar}"/>
+			<f:facet name="header">
+				<h:outputText value="Atualizar"/>
+			</f:facet>
+		</h:column>
+		<h:column>
+			<h:commandLink value="Excluir" action="#{produtoController.excluir}"/>
+			<f:facet name="header">
+				<h:outputText value="Excluir"/>
+			</f:facet>
+		</h:column>
+	</h:dataTable>
+	</div>
+	</ui:define>
+
+</ui:composition>
+        
+    </body>
+</html>

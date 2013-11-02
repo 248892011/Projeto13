@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:composition template="../template/loja/adminTemplate.xhtml">
+      <ui:define name="conteudo">
+      <h:form>
+      <h:messages/>
+      <h:inputHidden value="#{usuarioBean.usuario.idUsuario}"/>
+      <fieldset>
+	      <LEGEND>Cadastro de Pessoa física</LEGEND>
+	      <h:panelGrid id="painelFisica" columns="2">
+		      <h:outputLabel id="lblNome" for="lblNome" value="Nome:"/>
+			      <h:inputText id="txtNome" label="lblNome" value="#{usuarioBean.usuario.nomeUsuario}" maxlength="255" required="true" requiredMessage="Informe o Nome"  validatorMessage="O Nome ultrapassou 255 caracteres" styleClass="txtMatricula">
+			      <f:validateLength maximum="255"/>
+			      </h:inputText>
+		      <h:outputLabel id="lblCPF" for="lblCPF" value="CPF:"/>
+			      <h:inputText id="txtCPF" label="lblCPF" value="#{usuarioBean.usuario.cpfUsuario}" maxlength="100" required="true" requiredMessage="Informe o CPF" validatorMessage="O CPF ultrapassou 20 caracteres"  styleClass="txtNome" >
+			       <f:validateLength maximum="20"/>
+			      </h:inputText>
+		      <h:outputLabel id="lblSexo" for="lblSexo" value="Sexo:"/>
+			      <h:selectOneRadio value="#{usuarioBean.sexo}" required="true" requiredMessage="Selecione o Sexo" >
+			   	  <f:selectItems value="#{usuarioBean.constantes.sexos}" var="s" itemLabel="#{s.descricao}" itemValue="#{s.tipo}" />
+			   	  </h:selectOneRadio>
+		      <h:outputLabel id="lblCEP" for="lblCEP" value="CEP:"/>
+			      <h:inputText id="txtCEP" label="lblCEP" value="#{usuarioBean.usuario.cepUsuario}" required="true" requiredMessage="Informe o CEP" styleClass="txtDataNascimento">			      
+			      <f:validateLength maximum="20"/>
+			      </h:inputText>
+		      <h:outputLabel id="lblEmail" for="lblEmail" value="E-mail:"/>
+			      <h:inputText id="txtEmail" lable="lblEmail" value="#{usuarioBean.usuario.emailUsuario}" maxlength="255" required="true" requiredMessage="Informe o E-mail" validatorMessage="O E-mail ultrapassou 255 caracteres"  styleClass="txtCPF">
+			      <f:validateLength maximum="255"/>
+			      </h:inputText>
+			  <h:outputLabel id="lblSenha" for="lblSenha" value="Senha:"/>
+			      <h:inputSecret id="txtSenha" lable="lblSenha" value="#{usuarioBean.usuario.senhaUsuario}" maxlength="32" required="true" requiredMessage="Informe a senha" validatorMessage="A senha ultrapassou 32 caracteres"  styleClass="txtCPF">
+			      <f:validateLength maximum="32"/>
+			      </h:inputSecret>    
+	      </h:panelGrid>
+      </fieldset>
+      <h:panelGrid id="panelBotao" columns="3">
+      <h:commandButton id="btnNovo"     value="Novo"     styleClass="btnNovo" action="#{usuarioBean.novo}" immediate="true">
+      </h:commandButton>
+      <h:commandButton id="btnSalvar"  value="Salvar"   styleClass="btnSalvar" action="#{usuarioBean.gravarUsuario}"/>
+      <h:commandButton id="btnExcluir" value="Excluir"  styleClass="btnExcluir" action="#{usuarioBean.excluirUsuario}"/>
+      </h:panelGrid>
+      </h:form>
+      <br/>
+      
+      <h:form>     
+      <h:inputHidden value="#{usuarioBean.usuario.idUsuario}"/>
+      <fieldset>
+	      <LEGEND>Cadastro de Pessoa Jurídica</LEGEND>
+	      <h:panelGrid id="painelJuridica" columns="2">
+		      <h:outputLabel id="lblRzao" for="lblRzao" value="Razão Social:"/>
+			      <h:inputText id="txtRzao" label="lblRzao" value="#{usuarioBean.usuario.razaoSocialUsuario}" required="true" requiredMessage="Informe a razão social"  maxlength="255" validatorMessage="A razão social ultrapassou 255 caracteres" styleClass="txtMatricula">
+			      <f:validateLength maximum="255"/>
+			      </h:inputText>
+		      <h:outputLabel id="lblNfantasia" for="lblNfantasia" value="Nome Fantasia:"/>
+			      <h:inputText id="txtNfantasia" label="lblNfantasia" value="#{usuarioBean.usuario.nomeFantasiaUsuario}" required="true" requiredMessage="Informe o nome Fantasia" maxlength="255"  validatorMessage="O nome fantasia ultrapassou 255 caracteres"  styleClass="txtNome" >
+			       <f:validateLength maximum="255"/>
+			      </h:inputText>
+		      <h:outputLabel id="lblCNPJ" for="lblCNPJ" value="CNPJ:"/>
+			      <h:inputText id="txtCNPJ" label="lblCNPJ" value="#{usuarioBean.usuario.cnpjUsuario}" maxlength="45" required="true" requiredMessage="Informe o CNPJ" validatorMessage="O nome fantasia ultrapassou 45 caracteres"  styleClass="txtNome" >
+			       <f:validateLength maximum="45"/>
+			      </h:inputText>
+		      <h:outputLabel id="lblCEP_J" for="lblCEP_J" value="CEP:"/>
+			      <h:inputText id="txtCEP_J" label="lblCEP_J" value="#{usuarioBean.usuario.cepUsuario}" maxlength="45" required="true" requiredMessage="Informe o CEP"  validatorMessage="O CEP ultrapassou 45 caracteres"  styleClass="txtNome" >
+			       <f:validateLength maximum="45"/>
+			      </h:inputText>
+		      <h:outputLabel id="lblEmail_J" for="lblEmail_J" value="E-mail:"/>
+			      <h:inputText id="txtEmail_J" lable="lblEmail_J" value="#{usuarioBean.usuario.emailUsuario}" required="true" requiredMessage="Informe o E-mail" maxlength="255" validatorMessage="O e-mail ultrapassou 255 caracteres"  styleClass="txtCPF">
+			      <f:validateLength maximum="255"/>
+			      </h:inputText>
+			  <h:outputLabel id="lblSenha_J" for="lblSenha_J" value="Senha:"/>
+			      <h:inputSecret id="txtSenha_J" lable="lblSenha_J" value="#{usuarioBean.usuario.senhaUsuario}" required="true" requiredMessage="Informe a senha" maxlength="32" validatorMessage="A senha ultrapassou 32 caracteres"  styleClass="txtCPF">
+			      <f:validateLength maximum="32"/>
+			      </h:inputSecret>    
+	      </h:panelGrid>
+      </fieldset>
+     
+      <h:panelGrid id="panelBotao" columns="3">
+      <h:commandButton id="btnNovo"     value="Novo"     styleClass="btnNovo" action="#{usuarioBean.novo}" immediate="true">
+      </h:commandButton>
+      <h:commandButton id="btnSalvar"  value="Salvar"   styleClass="btnSalvar" action="#{usuarioBean.gravarUsuario}"/>
+      <h:commandButton id="btnExcluir" value="Excluir"  styleClass="btnExcluir" action="#{usuarioBean.excluirUsuario}"/>
+      </h:panelGrid>
+      </h:form>
+      </ui:define>
+ </ui:composition>
+</html>
