@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      <ui:composition template="../template/loja/adminTemplate.xhtml">
+      <ui:define name="conteudo">
+      <h:form>
+      <h:inputHidden value="#{categoriaBean.categoria.idCategoria}"/>
+      <h:messages/>
+      <fieldset>
+      <LEGEND>Cadastro de Categoria</LEGEND>
+      <h:panelGrid columns="2">
+      <h:outputLabel id="lblNome" for="lblNome" value="Nome:"/>
+      	<h:inputText id="txtNome" label="lblNome" value="#{categoriaBean.categoria.nome}" required="true" requiredMessage="Informe a Categoria"  styleClass="txtNome" />
+      </h:panelGrid>
+      <h:panelGrid columns="3">
+      <h:commandButton value="Novo" action="#{categoriaBean.novo}" styleClass="btnNovo"/>
+      <h:commandButton value="Salvar" action="#{categoriaBean.salvar}" styleClass="btnSalvar"/>
+      <h:commandButton value="Excluir" action="#{categoriaBean.excluir}" styleClass="btnExcluir"/>
+      </h:panelGrid>
+       </fieldset>
+      </h:form>
+      </ui:define>
+     </ui:composition>
+</html>

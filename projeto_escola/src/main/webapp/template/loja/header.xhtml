@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+   <body> 
+	   <ui:composition>
+			<div class="topHeader">
+					<div class="maincenter">				
+						<div id="logo">
+							<a href="index.jsf">								
+								<h:graphicImage library="img" name="logo.png" />
+							</a>
+						</div>
+						<div class="header_fone">Compre pelo Telefone (xx) xxxx-xxxx</div>
+						<div class="search" >
+							<input type="text" class="inputtext" value="O que você procura?" />
+							<input type="button" class="btn_ui" value="Pesquisar" />
+						</div>
+						<div class="carrinho">
+							<input type="hidden" value="0" id="total"/>
+							<div class="checkcarrinho">							
+								<h:graphicImage library="img" name="icone_carrinho.png" alt="Monitor"/>
+								Meu Carrinho <span class="intens_carrinho"> 0 </span>							
+							</div>	
+							<div class="form_carrinho">
+								<a href="login.jsf">faça seu login ou cadastre-se</a>
+							</div>
+												
+						</div>					
+					</div>				
+			</div>
+			<div class="menuWrap">
+				<ul class="headerMenu">	
+					<ui:repeat value="#{categoriaBean.lista}" var="categoria">
+						<li><a href="#"><b> #{categoria.nome}</b></a></li>	
+						
+					</ui:repeat>
+						<li><a href="#"><b> Ultrabooks</b></a></li>
+						<li><a href="#"><b> Telefonia</b></a></li>
+						<li><a href="#"><b> Tablets</b></a></li>
+						<li><a href="#"><b> Games</b></a></li>
+				</ul>				
+			</div>			
+				
+	 </ui:composition>
+  </body> 
+</html>
